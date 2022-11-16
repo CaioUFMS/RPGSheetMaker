@@ -27,9 +27,10 @@ public class Interface {
 					+ "4. Add weapon to selected character%n"
 					+ "5. Retrieve weapons available to selected character%n"
 					+ "6. Select weapons for current character by ID number%n"
-					+ "7. Roll to hit with selected character%n"
-					+ "8. Roll for damage with selected character%n"
-					+ "9. Exit application%n");
+					+ "7. Remove weapon from current character by ID number%n"
+					+ "8. Roll to hit with selected character%n"
+					+ "9. Roll for damage with selected character%n"
+					+ "10. Exit application%n");
 			
 			userInput = sc.nextInt();
 			sc.nextLine();
@@ -115,6 +116,7 @@ public class Interface {
 					
 					System.out.printf("The weapon is a ranged weapon(true or false)%n");
 					weapIsRanged = sc.nextBoolean();
+					sc.nextLine();
 					
 					System.out.printf("Please, enter the weapon's damage type%n");
 					weapDmgType = sc.nextLine();
@@ -146,7 +148,10 @@ public class Interface {
 				
 			case 7:
 				if(current != null) {
-					current.rollToHit();
+					System.out.printf("Please, enter the ID of the weapon you wish to remove%n");
+					Weapon removedWeapon = current.removeWeapon(sc.nextInt());
+					
+					System.out.println("Removed the following weapon: \n" + removedWeapon.toString());
 				}else {
 					System.out.println("No character currently selected");
 				}
@@ -154,18 +159,26 @@ public class Interface {
 				
 			case 8:
 				if(current != null) {
-					current.rollDmg();
+					current.rollToHit();
 				}else {
 					System.out.println("No character currently selected");
 				}
 				break;
 				
 			case 9:
+				if(current != null) {
+					current.rollDmg();
+				}else {
+					System.out.println("No character currently selected");
+				}
+				break;
+				
+			case 10:
 				isRunning = false;
 				break;
 				
 			default:
-				System.out.println("Please enter a valide number");
+				System.out.println("Please enter a valid number");
 			}
 		}
 

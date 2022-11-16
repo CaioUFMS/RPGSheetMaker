@@ -10,7 +10,7 @@ public abstract class Character {
 	protected int finalRoll, dmgRoll;
 	protected String name, race, job;
 	protected int lvl, healthPoints, profBonus, str, dex, con, inte, wis, cha, strMod, dexMod, conMod, inteMod, wisMod, chaMod;
-	private Skill[] spells, feats, racials;
+	private Ability[] spells, feats, racials;
 	private int[] spellSlots;
 	
 	//Rolls to hit based on equipped weapon as well as a character's modifiers
@@ -48,7 +48,7 @@ public abstract class Character {
 			dmgRoll += (strMod + equippedWeap.getPlusDmg());
 		}
 		
-		System.out.printf("You deal %d points of %s damage", dmgRoll, equippedWeap.getDmgType());
+		System.out.printf("You deal %d points of %s damage", dmgRoll, equippedWeap.getDmgType() + "\n");
 	}
 	
 }

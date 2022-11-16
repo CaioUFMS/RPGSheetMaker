@@ -10,6 +10,7 @@ public class PlayerCharacter extends Character{
 	private Gloves equippedGloves;
 	private Necklace equippedNeck;
 	private Ring ringRight, ringLeft;
+	private ClassResource resource;
 	
 	//Gear available in inventory
 	private LinkedList<Weapon> weaponInventory = new LinkedList();
@@ -91,8 +92,11 @@ public class PlayerCharacter extends Character{
 		weaponInventory.add(newWeap);
 	}
 	
-	public void removeWeapon() {
-		//TODO method stub
+	public Weapon removeWeapon(int id) {
+		Weapon removed = weaponInventory.get(id);
+		weaponInventory.remove(id);
+		
+		return removed;
 	}
 	
 	//getters and setters

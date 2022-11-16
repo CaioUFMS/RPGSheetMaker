@@ -8,7 +8,7 @@ public class Weapon {
 	private boolean isThrowable;
 	private boolean isRanged;
 	
-	private Skill[] weaponAbilities;
+	private Ability[] weaponAbilities;
 
 	public Weapon(int toHit, int plusDmg, int noHitDice, int typeHitDice, boolean isFinesse, boolean isThrowable, boolean isRanged, String dmgType) {
 		super();
